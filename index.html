@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AVERIQ - Decor that Speaks Divine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Roboto',sans-serif;
+    background:#ffffff;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:url('header-bg.jpg') center/cover no-repeat;
+    z-index:100;
+}
+
+header::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+    z-index:0;
+}
+
+.logo{
+    font-family:'Cinzel',serif;
+    font-size:28px;
+    color:#efb330;
+    position:relative;
+    z-index:1;
+}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#ffffff;
+    font-weight:bold;
+    position:relative;
+    z-index:1;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#bc8020;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    height:90vh;
+    background-image: url("images/flower2.jpg");
+    background-size: cover;          /* Makes image cover full section */
+    background-position: center;     /* Keeps image centered */
+    background-repeat: no-repeat;    /* Prevents repeating */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-family:'Cinzel',serif;
+    font-size:60px;
+    color:hsl(43, 96%, 31%);
+    animation:fadeIn 2s ease-in-out;
+}
+
+.tagline{
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+    color:#a33903;
+    margin-top:10px;
+    animation:fadeIn 3s ease-in-out;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 30px;
+    background:#f3d110;
+    color:#191818;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    animation:pulse 2s infinite;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#f4f2f2;
+    color:#0f0f0f;
+}
+
+/* Floating particles */
+
+.particles span{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:rgba(255,215,0,0.4);
+    border-radius:50%;
+    animation:float 8s linear infinite;
+}
+
+.particles span:nth-child(1){ left:10%; animation-delay:0s;}
+.particles span:nth-child(2){ left:30%; animation-delay:2s;}
+.particles span:nth-child(3){ left:50%; animation-delay:4s;}
+.particles span:nth-child(4){ left:70%; animation-delay:1s;}
+.particles span:nth-child(5){ left:90%; animation-delay:3s;}
+
+@keyframes float{
+    0%{ transform:translateY(100vh); opacity:0;}
+    50%{ opacity:0.7;}
+    100%{ transform:translateY(-100vh); opacity:0;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+}
+
+/* ================= CATEGORIES ================= */
+
+.categories{
+    padding:60px;
+    background:#fff5e1;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.category-card{
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+}
+
+.category-card img{
+    width:100px;
+    margin-bottom:10px;
+}
+
+.category-card h3{
+    font-family:'Playfair Display',serif;
+    color:#800000;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    padding:60px;
+}
+
+.products h2{
+    text-align:center;
+    font-family:'Cinzel',serif;
+    color:#151515;
+    margin-bottom:40px;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.product-card{
+    background:#fff;
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-6px);
+}
+
+.product-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.price{
+    color:#800000;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+/* ================= OFFERS ================= */
+
+.offers{
+    background:#f1e8b6;
+    padding:50px;
+    text-align:center;
+}
+
+.offers h2{
+    font-family:'Cinzel',serif;
+    color:#800000;
+    margin-bottom:15px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#151514;
+    color:#fff;
+    padding:40px 60px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+
+footer h3{
+    color:#FFD700;
+    margin-bottom:10px;
+}
+
+footer p, footer a{
+    font-size:14px;
+    color:#fff;
+    text-decoration:none;
+    margin-bottom:6px;
+    display:block;
+}
+
+footer a:hover{
+    color:#FFD700;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+    header{
+        flex-direction:column;
+    }
+    nav{
+        margin-top:10px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">AVERIQ</div>
+    <nav>
+        <nav>
+    <a href="#home">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#products">Products</a>
+    <a href="#offers">Offers</a>
+    <a href="#contact">Contact</a>
+</nav>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>AVERIQ</h1>
+        <p class="tagline"><b>"Decor that Speaks Divine"</b></p>
+        <a href="#" class="btn">Shop Now</a></div>
+        
+
+    </div>
+
+    <div class="particles">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+    <div class="category-card">
+        <img src="images/god idol.jpg">
+        <h3>God Idols</h3>
+    </div>
+    <div class="category-card">
+        <img src="images/frame.jpg">
+        <h3>Photo Frames</h3>
+    </div>
+    <div class="category-card">
+        <img src="images/pooja essentials.jpg">
+        <h3>Pooja Essentials</h3>
+    </div>
+    <div class="category-card">
+        <img src="images/wall art.jpg">
+        <h3>Wall Arts</h3>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products"iid="products">
+    <h2>Best Selling Products</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="images/ganesh idol.jpg">
+            <h3>Ganesh Idol</h3>
+            <p class="price">₹1200</p>
+        </div>
+        <div class="product-card">
+            <img src="images/krishna frame.jpg">
+            <h3>Krishna Frame</h3>
+            <p class="price">₹800</p>
+        </div>
+        <div class="product-card">
+            <img src="images/pooja thali.jpg">
+            <h3>Pooja Thali</h3>
+            <p class="price">₹600</p>
+        </div>
+        <div class="product-card">
+            <img src="images/divine wall art.jpg">
+            <h3>Divine Wall Art</h3>
+            <p class="price">₹1500</p>
+        </div>
+    </div>
+</section>
+
+<!-- OFFERS -->
+<section class="offers" id="offers">
+    <h2>Special Offers</h2>
+    <p>Up to 30% Off | Buy 2 Get 1 Free | Free Shipping Above ₹1500</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div>
+        <h3>AVERIQ</h3>
+        <p>Decor that Speaks Divine</p>
+    </div>
+
+    <div>
+        <h3>Quick Links</h3>
+        <a href="#products">Products</a>
+        <a href="#offers">Offers</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div>
+        <h3>Contact</h3>
+        <p>Email: support@averiq.com</p>
+        <p>Phone: +91 9876543210</p>
+    </div>
+</footer>
+
+</body>
+</html>
