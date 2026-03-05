@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        AWS_DEFAULT_REGION = 'eu-north-1'
-        S3_BUCKET = 'averiq-static-site'   // 🔴 change if needed
+        S3_BUCKET = 'averiq-static-site'
     }
 
     stages {
@@ -16,14 +15,9 @@ pipeline {
 
         stage('Deploy to S3') {
             steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'aws-credentials',
-                    usernameVariable: 'AWS_ACCESS_KEY_ID',
-                    passwordVariable: 'AWS_SECRET_ACCESS_KEY'
-                )]) {
-
+                withAWS(credentials: 'aws-credentials', region: 'eu-north-1') {
                     sh '''
-                    aws --version
+                    aws s3 ls
                     aws s3 sync . s3://$S3_BUCKET --delete
                     '''
                 }
